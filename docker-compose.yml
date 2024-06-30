@@ -1,0 +1,27 @@
+services:
+  build-dict:
+    build:
+      context: ./build-dict
+      dockerfile: ./Dockerfile
+    container_name: build-dict
+    image: build-dict
+    command: "tail -f /dev/null"
+    volumes:
+      - ./dict:/app/dict
+      - ./csv:/app/csv
+  run-node:
+    build:
+      context: ./run-node
+      dockerfile: ./Dockerfile
+    container_name: run-node
+    image: run-node
+    command: "tail -f /dev/null"
+    volumes:
+      - ./dict:/app/dict
+      - ./csv:/app/csv
+      - ./variables:/app/variables
+      - ./scripts:/app/scripts
+      - ./targets:/app/targets
+      - ./excludes:/app/excludes
+      - ./results:/app/results
+
