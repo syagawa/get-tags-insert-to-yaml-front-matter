@@ -1,0 +1,8 @@
+node_modules
+dict
+csv
+excludes
+targets
+results
+variables
+scripts/options.mjs
